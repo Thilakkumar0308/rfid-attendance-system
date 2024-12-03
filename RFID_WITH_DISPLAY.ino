@@ -10,9 +10,9 @@
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 // WiFi Settings
-const char *ssid = "SIVA'S BSNL FIBER";
-const char *password = "tHILAK@3210";
-const char* device_token = "2cda5a06bd528205";
+const char *ssid = "WIFI NAME";
+const char *password = "PASSWORD";
+const char* device_token = "TOKEN ID";
 
 // Time and Date Variables
 int hh;
@@ -99,7 +99,7 @@ void SendCardID(String Card_uid) {
     HTTPClient http;    
     WiFiClient client;
     String getData = "?card_uid=" + String(Card_uid) + "&device_token=" + String(device_token); 
-    String Link = "http://192.168.1.11/rfidattendance/getdata.php" + getData;
+    String Link = "http://YOUR IP/rfidattendance/getdata.php" + getData;
     http.begin(client, Link); 
     
     int httpCode = http.GET();   
